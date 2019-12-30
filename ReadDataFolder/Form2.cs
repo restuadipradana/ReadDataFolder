@@ -24,7 +24,7 @@ namespace ReadDataFolder
             string fname = "";
             OpenFileDialog fdlg = new OpenFileDialog();
             fdlg.Title = "Open";
-            fdlg.InitialDirectory = @"D:\Dokumenppppppp";
+            fdlg.InitialDirectory = @"D:\Dokumen";
             fdlg.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm;*.xlsb";
             fdlg.RestoreDirectory = true;
 
@@ -105,9 +105,5 @@ namespace ReadDataFolder
 
         }
 
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
