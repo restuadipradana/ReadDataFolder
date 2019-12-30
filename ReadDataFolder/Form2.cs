@@ -24,7 +24,7 @@ namespace ReadDataFolder
             string fname = "";
             OpenFileDialog fdlg = new OpenFileDialog();
             fdlg.Title = "Open";
-            fdlg.InitialDirectory = @"D:\Dokumen";
+            fdlg.InitialDirectory = @"D:\Dokumenppppppp";
             fdlg.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm;*.xlsb";
             fdlg.RestoreDirectory = true;
 
@@ -87,6 +87,8 @@ namespace ReadDataFolder
                 //quit and release  
                 xlApp.Quit();
                 Marshal.ReleaseComObject(xlApp);
+
+
             }
             else if (fdlg.ShowDialog() == DialogResult.Cancel)
             {
@@ -99,6 +101,11 @@ namespace ReadDataFolder
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
         {
 
         }
