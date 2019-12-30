@@ -22,7 +22,7 @@ namespace ReadDataFolder
 
         public void button1_Click(object sender, EventArgs e)
         {
-            string dir = @"D:\Dokumen";
+            string dir = @"F:\File Restu\Dokumen";
             listBox1.Items.Clear();
 
             var allowedExtensions = new[] { ".xls", ".xlsx", ".xlsb", ".xlsm" };

@@ -24,9 +24,12 @@ namespace ReadDataFolder
             string fname = "";
             OpenFileDialog fdlg = new OpenFileDialog();
             fdlg.Title = "Open";
-            fdlg.InitialDirectory = @"D:\Dokumen";
+            fdlg.InitialDirectory = @"F:\File Restu\Dokumen";
             fdlg.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm;*.xlsb";
             fdlg.RestoreDirectory = true;
+
+
+            
 
             if (fdlg.ShowDialog() == DialogResult.OK)
             {
@@ -49,6 +52,9 @@ namespace ReadDataFolder
                 dataGridView1.ColumnCount = colCount;
                 dataGridView1.RowCount = rowCount;
 
+                progressBar1.Value = 0;
+                progressBar1.Maximum = rowCount;
+
                 for (int i = 1; i <= rowCount; i++)
                 {
                     for (int j = 1; j <= colCount; j++)
@@ -64,9 +70,12 @@ namespace ReadDataFolder
                         }
                         // Console.Write(xlRange.Cells[i, j].Value2.ToString() + "\t");  
 
-                        //add useful things here!     
+                        //add useful things here!
+                        
                     }
+                    progressBar1.Value += 1;
                 }
+
 
                 //cleanup  
                 GC.Collect();
@@ -104,6 +113,14 @@ namespace ReadDataFolder
         {
 
         }
+
+        private void progressBar1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
 
     }
 }
