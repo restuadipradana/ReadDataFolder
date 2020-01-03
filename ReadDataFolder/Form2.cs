@@ -24,7 +24,7 @@ namespace ReadDataFolder
             string fname = "";
             OpenFileDialog fdlg = new OpenFileDialog();
             fdlg.Title = "Open";
-            fdlg.InitialDirectory = @"F:\File Restu\Dokumen";
+            fdlg.InitialDirectory = @"D:\Dokumen";
             fdlg.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm;*.xlsb";
             fdlg.RestoreDirectory = true;
 
@@ -53,6 +53,7 @@ namespace ReadDataFolder
                 dataGridView1.RowCount = rowCount;
 
                 progressBar1.Value = 0;
+                progressBar1.Minimum = 0;
                 progressBar1.Maximum = rowCount;
 
                 for (int i = 1; i <= rowCount; i++)
@@ -119,8 +120,9 @@ namespace ReadDataFolder
 
         }
 
-        
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
-
+        }
     }
 }

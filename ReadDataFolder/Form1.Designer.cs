@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.tblOpen = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btEx1 = new System.Windows.Forms.Button();
             this.btEx2 = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // listBox1
@@ -42,6 +45,9 @@
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(654, 355);
             this.listBox1.TabIndex = 0;
+            this.listBox1.Click += new System.EventHandler(this.listBox1_Click);
+            this.listBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listBox1_MouseClick);
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // tblOpen
             // 
@@ -49,9 +55,9 @@
             this.tblOpen.Name = "tblOpen";
             this.tblOpen.Size = new System.Drawing.Size(114, 23);
             this.tblOpen.TabIndex = 1;
-            this.tblOpen.Text = "Open";
+            this.tblOpen.Text = "Refresh";
             this.tblOpen.UseVisualStyleBackColor = true;
-            this.tblOpen.Click += new System.EventHandler(this.button1_Click);
+            this.tblOpen.Click += new System.EventHandler(this.Form1_Load);
             // 
             // textBox1
             // 
@@ -79,6 +85,11 @@
             this.btEx2.TabIndex = 4;
             this.btEx2.Text = "Baca Excel 2";
             this.btEx2.UseVisualStyleBackColor = true;
+            this.btEx2.Click += new System.EventHandler(this.btEx2_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // Form1
             // 
@@ -93,6 +104,7 @@
             this.Name = "Form1";
             this.Text = "Read Excel";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,6 +117,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btEx1;
         private System.Windows.Forms.Button btEx2;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 
