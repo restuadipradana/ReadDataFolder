@@ -18,13 +18,17 @@ namespace ReadDataFolder
             InitializeComponent();
             sqlCon = new SqlConnection(conString);
             sqlCon.Open();
+            
         }
 
         string conString = @"Data Source=SYFPC702030\SQL19;Initial Catalog=coba_db;Integrated Security=True";
         SqlConnection sqlCon;
         SqlCommand sqlCmd = new SqlCommand();
-        string query;
+        SqlDataAdapter sqlDa = new SqlDataAdapter();
+        DataTable dtData = new DataTable();
+        string kueri;
         int result;
+        int id;
 
         
         private DataTable FetchEmpDetails()
@@ -46,19 +50,15 @@ namespace ReadDataFolder
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                MessageBox.Show("Enter Employee Name !!!");
+                MessageBox.Show("Enter ID Brand !!!");
                 textBox1.Select();
             }
             else if (string.IsNullOrWhiteSpace(textBox2.Text))
             {
-                MessageBox.Show("Enter Current City !!!");
+                MessageBox.Show("Enter Tipe !!!");
                 textBox2.Select();
             }
-            else if (string.IsNullOrWhiteSpace(textBox3.Text))
-            {
-                MessageBox.Show("Enter Department !!!");
-                textBox3.Select();
-            }
+            
             
             else
             {
@@ -68,9 +68,9 @@ namespace ReadDataFolder
                     {
                         sqlCon.Open();
                     }
-                    query = "INSERT INTO model (id_brand, type, remark_type) VALUES ('"+textBox1.Text+"' ,'"+textBox2.Text+"' ,'"+textBox3.Text+"')";
+                    kueri = "INSERT INTO model (id_brand, type, remark_type) VALUES ('"+textBox1.Text+"' ,'"+textBox2.Text+"' ,'"+textBox3.Text+"')";
                     sqlCmd.Connection = sqlCon;
-                    sqlCmd.CommandText = query;
+                    sqlCmd.CommandText = kueri;
                     result = sqlCmd.ExecuteNonQuery();
 
                     if (result != 0)
@@ -95,17 +95,94 @@ namespace ReadDataFolder
 
         private void delBtn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
+                kueri = "DELETE FROM model WHERE id_model =" + id;
+                sqlCmd.Connection = sqlCon;
+                sqlCmd.CommandText = kueri;
+                result = sqlCmd.ExecuteNonQuery();
 
+                if (result != 0)
+                {
+                    MessageBox.Show("Data has been deleted in the SQL database");
+                    //calling a method
+                    srcBtn_Click(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("SQL QUERY ERROR");
+                }
+                sqlCon.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error:- " + ex.Message);
+            }
         }
 
         private void editBtn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (sqlCon.State == ConnectionState.Closed)
+                {
+                    sqlCon.Open();
+                }
+                kueri = "UPDATE model SET id_brand ='"+textBox1.Text+ "' , type = '" + textBox2.Text + "', remark_type = '" + textBox3.Text + "'WHERE id_model = " +id;
+                sqlCmd.Connection = sqlCon;
+                sqlCmd.CommandText = kueri;
+                result = sqlCmd.ExecuteNonQuery();
 
+                if (result != 0)
+                {
+                    MessageBox.Show("Data has been updated in the SQL database");
+                    //calling a method
+                    srcBtn_Click(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("SQL QUERY ERROR");
+                }
+                sqlCon.Close();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                
+            }
         }
 
         private void srcBtn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                kueri = "SELECT model.id_model as 'ID Model', model.id_brand as 'ID', merk.brand as 'Brand', model.type as 'Type', model.remark_type as 'Seri' FROM merk RIGHT JOIN model ON merk.id_brand = model.id_brand";
+                sqlCmd = new SqlCommand();
+                sqlCmd.Connection = sqlCon;
+                sqlCmd.CommandText = kueri;
+                sqlDa = new SqlDataAdapter();
+                sqlDa.SelectCommand = sqlCmd;
+                dtData = new DataTable();
+                sqlDa.Fill(dtData);
+                dataGridView1.DataSource = dtData;
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlDa.Dispose();
+            }
+            id = 0;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -113,10 +190,26 @@ namespace ReadDataFolder
             
         }
 
-        private void Form5_Load(object sender, EventArgs e)
+        
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //dataGridView1.AutoGenerateColumns = false; // dgvEmp is DataGridView name  
-            //dataGridView1.DataSource = FetchEmpDetails();
+            {
+                id = Int32.Parse(dataGridView1.CurrentRow.Cells["ID Model"].FormattedValue.ToString());
+                textBox1.Text = dataGridView1.CurrentRow.Cells["ID"].FormattedValue.ToString();
+                textBox2.Text = dataGridView1.CurrentRow.Cells["Type"].FormattedValue.ToString();
+                textBox3.Text = dataGridView1.CurrentRow.Cells["Seri"].FormattedValue.ToString();
+
+
+            }
+        }
+
+        private void Form5_Click(object sender, EventArgs e)
+        {
+            id = 0;
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
         }
     }
 }

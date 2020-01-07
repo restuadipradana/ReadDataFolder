@@ -96,12 +96,13 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 169);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(448, 269);
+            this.dataGridView1.Size = new System.Drawing.Size(585, 269);
             this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // addBtn
             // 
-            this.addBtn.Location = new System.Drawing.Point(384, 12);
+            this.addBtn.Location = new System.Drawing.Point(522, 34);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(75, 23);
             this.addBtn.TabIndex = 7;
@@ -111,7 +112,7 @@
             // 
             // delBtn
             // 
-            this.delBtn.Location = new System.Drawing.Point(384, 59);
+            this.delBtn.Location = new System.Drawing.Point(522, 69);
             this.delBtn.Name = "delBtn";
             this.delBtn.Size = new System.Drawing.Size(75, 23);
             this.delBtn.TabIndex = 8;
@@ -121,7 +122,7 @@
             // 
             // editBtn
             // 
-            this.editBtn.Location = new System.Drawing.Point(384, 105);
+            this.editBtn.Location = new System.Drawing.Point(522, 105);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(75, 23);
             this.editBtn.TabIndex = 9;
@@ -135,7 +136,7 @@
             this.srcBtn.Name = "srcBtn";
             this.srcBtn.Size = new System.Drawing.Size(75, 23);
             this.srcBtn.TabIndex = 10;
-            this.srcBtn.Text = "Search";
+            this.srcBtn.Text = "Refresh";
             this.srcBtn.UseVisualStyleBackColor = true;
             this.srcBtn.Click += new System.EventHandler(this.srcBtn_Click);
             // 
@@ -143,7 +144,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 458);
+            this.ClientSize = new System.Drawing.Size(610, 458);
             this.Controls.Add(this.srcBtn);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.delBtn);
@@ -157,7 +158,8 @@
             this.Controls.Add(this.textBox1);
             this.Name = "Form5";
             this.Text = "Form5";
-            this.Load += new System.EventHandler(this.Form5_Load);
+            this.Load += new System.EventHandler(this.srcBtn_Click);
+            this.Click += new System.EventHandler(this.Form5_Click);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
