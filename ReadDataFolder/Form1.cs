@@ -145,5 +145,12 @@ namespace ReadDataFolder
 
             form5.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form form6 = new Form6();
+
+            form6.ShowDialog();
+        }
     }
 }

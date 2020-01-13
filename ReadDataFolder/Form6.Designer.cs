@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtFileName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnImport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,11 +91,21 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Sheet";
             // 
+            // btnImport
+            // 
+            this.btnImport.Location = new System.Drawing.Point(199, 370);
+            this.btnImport.Name = "btnImport";
+            this.btnImport.Size = new System.Drawing.Size(75, 23);
+            this.btnImport.TabIndex = 6;
+            this.btnImport.Text = "Import";
+            this.btnImport.UseVisualStyleBackColor = true;
+            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 450);
+            this.Controls.Add(this.btnImport);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtFileName);
             this.Controls.Add(this.label1);
@@ -118,5 +129,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtFileName;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnImport;
     }
 }

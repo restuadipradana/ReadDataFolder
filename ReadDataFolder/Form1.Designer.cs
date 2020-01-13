@@ -28,16 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.tblOpen = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btEx1 = new System.Windows.Forms.Button();
             this.btEx2 = new System.Windows.Forms.Button();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.bt6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBox1
@@ -87,10 +85,6 @@
             this.btEx2.UseVisualStyleBackColor = true;
             this.btEx2.Click += new System.EventHandler(this.btEx2_Click);
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(700, 307);
@@ -111,11 +105,22 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // bt6
+            // 
+            this.bt6.Location = new System.Drawing.Point(700, 340);
+            this.bt6.Name = "bt6";
+            this.bt6.Size = new System.Drawing.Size(85, 29);
+            this.bt6.TabIndex = 7;
+            this.bt6.Text = "Form 6";
+            this.bt6.UseVisualStyleBackColor = true;
+            this.bt6.Click += new System.EventHandler(this.button3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.bt6);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btEx2);
@@ -126,7 +131,6 @@
             this.Name = "Form1";
             this.Text = "Read Excel";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,9 +143,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btEx1;
         private System.Windows.Forms.Button btEx2;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bt6;
     }
 }
 
