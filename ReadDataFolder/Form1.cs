@@ -104,11 +104,7 @@ namespace ReadDataFolder
             MessageBox.Show("Next Feature!", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void listBox1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
+       
         private void listBox1_MouseClick(object sender, MouseEventArgs e)
         {
             //int index = this.listBox1.IndexFromPoint(e.Location);
@@ -136,6 +132,18 @@ namespace ReadDataFolder
             }
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form form3 = new Form3();
+
+            form3.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Form form5 = new Form5();
+
+            form5.ShowDialog();
+        }
     }
 }
