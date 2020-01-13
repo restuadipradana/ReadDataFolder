@@ -67,7 +67,7 @@ namespace ReadDataFolder
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string dir = @"D:\Dokumen";
+            string dir = @"F:\File Restu\Dokumen";
             listBox1.Items.Clear();
 
 
